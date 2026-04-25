@@ -1,0 +1,91 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:FileEncryptor.App.ViewModels"
+        x:Class="FileEncryptor.App.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Width="1000"
+        Height="720"
+        MinWidth="900"
+        MinHeight="600"
+        Title="File Encryptor"
+        mc:Ignorable="d">
+  <Design.DataContext>
+    <vm:MainWindowViewModel />
+  </Design.DataContext>
+
+  <Window.KeyBindings>
+    <KeyBinding Gesture="Ctrl+E" Command="{Binding EncryptCommand}" />
+    <KeyBinding Gesture="Ctrl+D" Command="{Binding DecryptCommand}" />
+    <KeyBinding Gesture="Ctrl+R" Command="{Binding RemoveSelectedFilesCommand}" />
+  </Window.KeyBindings>
+
+  <Grid RowDefinitions="Auto,Auto,*,Auto,Auto" Margin="16" RowSpacing="12">
+    <Border Background="{DynamicResource ThemeControlLowBrush}" CornerRadius="8" Padding="12">
+      <StackPanel Spacing="6">
+        <TextBlock FontWeight="Bold" FontSize="16" Text="Welcome to File Encryptor" />
+        <TextBlock TextWrapping="Wrap" Text="Your encryption password is never recoverable. If you lose it, your encrypted files cannot be restored." />
+      </StackPanel>
+    </Border>
+
+    <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+      <Border Name="DropTarget" BorderBrush="{DynamicResource ThemeAccentBrush}" BorderThickness="2" CornerRadius="8" Padding="18" AllowDrop="True" DragDrop.Drop="DropTarget_OnDrop" DragDrop.DragOver="DropTarget_OnDragOver">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Drag and drop files here, or use Add Files" />
+      </Border>
+      <Button Grid.Column="1" Content="Add Files" Click="AddFiles_OnClick" VerticalAlignment="Center" TabIndex="0" />
+    </Grid>
+
+    <Grid Grid.Row="2" ColumnDefinitions="2*,3*" ColumnSpacing="12">
+      <Border BorderBrush="{DynamicResource ThemeBorderMidBrush}" BorderThickness="1" CornerRadius="8" Padding="8">
+        <DockPanel>
+          <Button DockPanel.Dock="Bottom" Margin="0,8,0,0" Content="Remove Selected" Command="{Binding RemoveSelectedFilesCommand}" TabIndex="1" />
+          <ListBox ItemsSource="{Binding Files}" SelectionMode="Multiple">
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                  <CheckBox IsChecked="{Binding IsSelected}" VerticalAlignment="Center" />
+                  <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" />
+                  <TextBlock Grid.Column="2" Text="{Binding SizeBytes, StringFormat='{}{0:N0} B'}" VerticalAlignment="Center" />
+                </Grid>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </DockPanel>
+      </Border>
+
+      <Border Grid.Column="1" BorderBrush="{DynamicResource ThemeBorderMidBrush}" BorderThickness="1" CornerRadius="8" Padding="12">
+        <StackPanel Spacing="10">
+          <TextBlock FontWeight="SemiBold" Text="Password" />
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <TextBox IsVisible="{Binding IsPasswordVisible}" Text="{Binding Password}" Watermark="Enter password" TabIndex="2" />
+            <PasswordBox IsVisible="{Binding !IsPasswordVisible}" Password="{Binding Password}" Watermark="Enter password" TabIndex="2" />
+            <Button Grid.Column="1" Content="Show/Hide" Command="{Binding TogglePasswordVisibilityCommand}" TabIndex="3" />
+          </Grid>
+
+          <TextBlock FontWeight="SemiBold" Text="Confirm Password" />
+          <TextBox IsVisible="{Binding IsPasswordVisible}" Text="{Binding ConfirmPassword}" Watermark="Confirm password" TabIndex="4" />
+          <PasswordBox IsVisible="{Binding !IsPasswordVisible}" Password="{Binding ConfirmPassword}" Watermark="Confirm password" TabIndex="4" />
+
+          <TextBlock Foreground="{DynamicResource ThemeAccentBrush}" TextWrapping="Wrap" Text="{Binding PasswordGuidance}" />
+
+          <TextBlock FontWeight="SemiBold" Text="Output Folder" />
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <TextBox Text="{Binding OutputFolder}" IsReadOnly="True" />
+            <Button Grid.Column="1" Content="Browse" Click="PickOutputFolder_OnClick" TabIndex="5" />
+          </Grid>
+
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button Content="_Encrypt" Command="{Binding EncryptCommand}" IsEnabled="{Binding !IsBusy}" TabIndex="6" />
+            <Button Content="_Decrypt" Command="{Binding DecryptCommand}" IsEnabled="{Binding !IsBusy}" TabIndex="7" />
+            <ToggleSwitch Content="Dark theme" IsChecked="{Binding UseDarkTheme}" TabIndex="8" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </Grid>
+
+    <ProgressBar Grid.Row="3" Height="20" Minimum="0" Maximum="100" Value="{Binding ProgressValue}" ShowProgressText="True" />
+
+    <TextBlock Grid.Row="4" Text="{Binding StatusText}" />
+  </Grid>
+</Window>
