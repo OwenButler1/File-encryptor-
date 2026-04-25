@@ -1,0 +1,17 @@
+<Window
+    x:Class="FileEncryptor.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:FileEncryptor.App"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="File Encryptor">
+
+    <Grid>
+        <StackPanel Spacing="12" Padding="24">
+            <TextBlock FontSize="28" Text="File Encryptor" />
+            <TextBlock Text="Dependency injection bootstrapped successfully." />
+        </StackPanel>
+    </Grid>
+</Window>

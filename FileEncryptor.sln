@@ -1,0 +1,51 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.App", "src\FileEncryptor.App\FileEncryptor.App.csproj", "{D8F13F2F-846B-49E0-A3CF-8996AF9F2201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.Core", "src\FileEncryptor.Core\FileEncryptor.Core.csproj", "{07A57F7A-E80C-4C56-97F9-3C7E985522E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.Security", "src\FileEncryptor.Security\FileEncryptor.Security.csproj", "{8CD5B859-62DD-4A15-91DF-B47BDBBFC899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.Format", "src\FileEncryptor.Format\FileEncryptor.Format.csproj", "{2CE72CD6-27E8-4B5C-8E75-46D778CA976A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.Infrastructure", "src\FileEncryptor.Infrastructure\FileEncryptor.Infrastructure.csproj", "{65C10ACF-5BA5-4080-8805-4EC5ACBDFDA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.Tests", "tests\FileEncryptor.Tests\FileEncryptor.Tests.csproj", "{8F8B7461-F892-4CC8-A4F1-F4AA2D42A896}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8F13F2F-846B-49E0-A3CF-8996AF9F2201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8F13F2F-846B-49E0-A3CF-8996AF9F2201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8F13F2F-846B-49E0-A3CF-8996AF9F2201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8F13F2F-846B-49E0-A3CF-8996AF9F2201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A57F7A-E80C-4C56-97F9-3C7E985522E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A57F7A-E80C-4C56-97F9-3C7E985522E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A57F7A-E80C-4C56-97F9-3C7E985522E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A57F7A-E80C-4C56-97F9-3C7E985522E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD5B859-62DD-4A15-91DF-B47BDBBFC899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD5B859-62DD-4A15-91DF-B47BDBBFC899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD5B859-62DD-4A15-91DF-B47BDBBFC899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD5B859-62DD-4A15-91DF-B47BDBBFC899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE72CD6-27E8-4B5C-8E75-46D778CA976A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE72CD6-27E8-4B5C-8E75-46D778CA976A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE72CD6-27E8-4B5C-8E75-46D778CA976A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE72CD6-27E8-4B5C-8E75-46D778CA976A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C10ACF-5BA5-4080-8805-4EC5ACBDFDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C10ACF-5BA5-4080-8805-4EC5ACBDFDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C10ACF-5BA5-4080-8805-4EC5ACBDFDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C10ACF-5BA5-4080-8805-4EC5ACBDFDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8B7461-F892-4CC8-A4F1-F4AA2D42A896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8B7461-F892-4CC8-A4F1-F4AA2D42A896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8B7461-F892-4CC8-A4F1-F4AA2D42A896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8B7461-F892-4CC8-A4F1-F4AA2D42A896}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
